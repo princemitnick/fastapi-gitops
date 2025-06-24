@@ -1,0 +1,10 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: fastapi
+spec:
+  values:
+    replicaCount: 1
+    image:
+      tag: dev
+

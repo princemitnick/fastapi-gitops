@@ -1,0 +1,19 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: default
+  namespace: default
+spec:
+  interval: 1m0s
+  chart:
+    spec:
+      chart: ./helm/fastapi-chart
+      sourceRef:
+        kind: GitRepository
+        name: fastapi-gitops
+        namespace: default
+      version: "0.1.0"
+  values:
+    image:
+      repository: princemitnick/fastapi-gitops
+      tag: latest
